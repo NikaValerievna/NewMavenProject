@@ -21,6 +21,6 @@ public class HomePage {
     }
     public boolean userIconIsPresent() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10).getSeconds());
-        return wait.until(presenceOfElementLocated(By.xpath("//span[@class='header-topline__user-label']"))).isDisplayed();
+        return wait.until(presenceOfElementLocated(By.xpath("//a[@class='header-topline__user-link link-dashed']"))).isDisplayed();
     }
 }
