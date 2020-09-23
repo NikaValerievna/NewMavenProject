@@ -19,8 +19,12 @@ public class HomePage {
     public void navigateTo() {
         driver.get("https://rozetka.com.ua/");
     }
-    public boolean userIconIsPresent() {
+    public boolean firstObjectNameIsPresent() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10).getSeconds());
-        return wait.until(presenceOfElementLocated(By.xpath("//a[@class='header-topline__user-link link-dashed']"))).isDisplayed();
+        return wait.until(presenceOfElementLocated(By.xpath("//a[@title='Фотоаппарат Nikon Z50 + DX 16-50mm VR Kit (VOA050K001) Официальная гарантия!']"))).isDisplayed();
     }
+//    public boolean userIconIsPresent() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10).getSeconds());
+//        return wait.until(presenceOfElementLocated(By.xpath("//a[@class='header-topline__user-link link-dashed']"))).isDisplayed();
+//    }
 }

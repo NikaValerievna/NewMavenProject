@@ -6,12 +6,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.Search;
 import utils.WebDriverFactory;
 
 public class SampleTestClass {
     WebDriver driver = null;
     LoginPage loginPage = null;
     HomePage homePage = null;
+    Search search = null;
 
     @BeforeMethod
     public void setUp(){
@@ -19,6 +21,7 @@ public class SampleTestClass {
         driver = WebDriverFactory.getDriver();
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
+        search = new Search(driver);
     }
 
     @Test
@@ -28,7 +31,10 @@ public class SampleTestClass {
         loginPage.usernameInput("nika1993valerievna@gmail.com");
         loginPage.passwordInput("Rozetka2020");
         loginPage.loginClick();
-        Assert.assertTrue(homePage.userIconIsPresent());
+        search.objectToSearch("Фотоаппарат Nikon");
+        search.searchButtonClick();
+        Assert.assertTrue(homePage.firstObjectNameIsPresent());
+        //Assert.assertTrue(homePage.userIconIsPresent());
     }
 //img[@alt="User profile for webinar5"]
 //    String str=driver.getTitle();
