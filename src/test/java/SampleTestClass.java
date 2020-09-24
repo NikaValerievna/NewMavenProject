@@ -25,16 +25,25 @@ public class SampleTestClass {
     }
 
     @Test
-    public void successfulLogin() throws InterruptedException {
+    public void successfulLogin() {
         homePage.navigateTo();
         loginPage.profileButtonClick();
         loginPage.usernameInput("nika1993valerievna@gmail.com");
         loginPage.passwordInput("Rozetka2020");
         loginPage.loginClick();
-        search.objectToSearch("Фотоаппарат Nikon");
-        search.searchButtonClick();
-        Assert.assertTrue(homePage.firstObjectNameIsPresent());
-        //Assert.assertTrue(homePage.userIconIsPresent());
+        Assert.assertTrue(homePage.userIconIsPresent());
+    }
+
+    @Test
+    public void successfulSearch(){
+        homePage.navigateTo();
+        loginPage.profileButtonClick();
+        loginPage.usernameInput("nika1993valerievna@gmail.com");
+        loginPage.passwordInput("Rozetka2020");
+        loginPage.loginClick();
+        homePage.objectToSearch("Фотоаппарат Nikon");
+        homePage.searchButtonClick();
+        Assert.assertTrue(search.firstObjectNameIsPresent());
     }
 //img[@alt="User profile for webinar5"]
 //    String str=driver.getTitle();
